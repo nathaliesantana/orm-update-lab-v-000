@@ -1,5 +1,5 @@
 require_relative "../config/environment.rb"
-
+require 'pry'
 class Student
   #  with DB[:conn]
 
@@ -61,6 +61,7 @@ class Student
     SQL
 
     DB[:conn].execute(sql, name).flatten.map do |row|
+      binding.pry
       self.id = row[0]
       self.name = row[1]
       self.grade= row[2]
