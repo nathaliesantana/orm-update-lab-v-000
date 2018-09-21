@@ -58,7 +58,6 @@ class Student
       @name = row[1]
       @grade = row[2]
     end
-    end
 
   end
 
