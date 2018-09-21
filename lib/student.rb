@@ -53,7 +53,7 @@ class Student
     sql = <<-SQL
     SELECT * FROM students
     SQL
-    DB[:conn].execute(sql)map do |row|
+    DB[:conn].execute(sql).map do |row|
       @id = row[0]
       @name = row[1]
       @grade = row[2]
