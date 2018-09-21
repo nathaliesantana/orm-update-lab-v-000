@@ -62,9 +62,7 @@ class Student
 
     DB[:conn].execute(sql, name).map do |row|
       # binding.pry
-      self.id = row[0]
-      self.name = row[1]
-      self.grade= row[2]
+      self.new_from_db(row)
     end
 
   end
