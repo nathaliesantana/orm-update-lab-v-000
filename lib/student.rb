@@ -60,7 +60,11 @@ class Student
     WHERE name = ?
     SQL
 
-    DB[:conn].execute(sql, name).flatten
+    DB[:conn].execute(sql, name).flatten.map do |row|
+      self.id = row[0]
+      self.name = row[1]
+      self.grade= row[2]
+    end
 
   end
 
