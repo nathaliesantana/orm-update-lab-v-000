@@ -50,7 +50,16 @@ class Student
   end
 
   def self.new_from_db
-
+    sql = <<-SQL
+    SELECT * FROM students
+    SQL
+    DB[:conn].execute(sql)map do |row|
+      @id = row[0]
+      @name = row[1]
+      @grade = row[2]
+    end
+    end
+    
   end
 
   def self.find_by_name
